@@ -9,7 +9,7 @@ import App.E_commmerce.Model.CartModel;
 import App.E_commmerce.Model.OrderModel;
 import App.E_commmerce.repository.CartRepository;
 import App.E_commmerce.repository.OrderRepository;
-
+import App.E_commmerce.Service.EmailService;
 
 @Service
 public class OrderService {
@@ -19,6 +19,9 @@ public class OrderService {
 
     @Autowired
     CartRepository cartRepo;
+
+    @Autowired
+    EmailService emailService;
 
     public void placeOrder(OrderModel orderModel) {
 
@@ -36,6 +39,7 @@ public class OrderService {
     orderRepo.save(orderModel);
 
     cartRepo.deleteAll(cartItems);
+    emailService.sendEmail(orderModel.getEmail());
     }
 
     public OrderModel addressChange(Long orderId, String address) {

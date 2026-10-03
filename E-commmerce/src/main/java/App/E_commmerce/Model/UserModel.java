@@ -14,7 +14,8 @@ public class UserModel {
 
     private String username;
     private String password;
-    private Integer number;
+    private String  number;
+    private String email;
 
     public void setUsername(String username) {
         this.username = username;
@@ -32,11 +33,18 @@ public class UserModel {
         return password;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
-    public Integer getNumber() {
+    public String getNumber() {
         return number;
     }
+    public void setEmail(String email) {
+    this.email = email;
+}
+
+public String getEmail() {
+    return email;
+}
 }

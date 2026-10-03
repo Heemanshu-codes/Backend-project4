@@ -17,6 +17,7 @@ public class OrderModel {
 
     private Integer userId;
     private String address;
+    private String email;
 
     @ElementCollection
     private List<Integer> productIds;
@@ -47,5 +48,11 @@ public class OrderModel {
 
     public void setProductIds(List<Integer> productIds) {
         this.productIds = productIds;
+    }
+    public String getEmail(){
+        return email;
+    }
+    public void setEmail(String email){
+        this.email=email;
     }
 }

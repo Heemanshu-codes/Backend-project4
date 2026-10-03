@@ -3,7 +3,7 @@ package  App.E_commmerce.controller;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import App.E_commmerce.Model.UserModel;
 import App.E_commmerce.Service.UserService;
 
-@Controller
-@RequestMapping("user")
+@RestController
+@RequestMapping("/user")
 public class User {
     
     @Autowired
@@ -25,7 +25,7 @@ public class User {
     return userService.registerUser(user);
     }
 
-    @GetMapping("alluser")
+    @GetMapping("/alluser")
     public List<UserModel> getAllUser(){
         return userService.getAllUser();
     }
